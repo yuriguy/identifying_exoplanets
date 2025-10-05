@@ -1,5 +1,6 @@
 // src/pages/Sobre.jsx
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import NerdStats from '@/components/NerdStats' // <— adiciona
 
 export default function Sobre() {
   return (
@@ -73,6 +74,17 @@ export default function Sobre() {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* —— ESTATÍSTICAS PARA NERDS —— */}
+        <div>
+          <h2 className="text-3xl font-bold text-card-foreground mb-4 border-b border-border/40 pb-3">
+            Model Performance (Nerd Stats)
+          </h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Live metrics pulled from <code className="font-mono">GET /stats</code> when your API is running.
+          </p>
+          <NerdStats className="w-full" />
         </div>
 
         {/* Quem Somos */}
