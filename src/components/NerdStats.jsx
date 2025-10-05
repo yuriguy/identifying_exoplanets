@@ -19,6 +19,8 @@ function Bar({ value }) {
   )
 }
 
+const API_URL = "http://127.0.0.1:5000";
+
 export default function NerdStats({ className = "" }) {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -28,7 +30,9 @@ export default function NerdStats({ className = "" }) {
     try {
       setLoading(true)
       setError("")
-      const res = await axios.get("/stats")
+      const res = await axios.get(`${API_URL}/stats`, {
+        headers: { Accept: "application/json" },
+      })
       setData(res.data)
     } catch (e) {
       setError("Falha ao buscar /stats. API tá rodando em 127.0.0.1:5000?")
